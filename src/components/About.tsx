@@ -103,10 +103,10 @@ export const About = () => {
                       {/* Text overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
                         <h3 className="text-lg font-serif font-bold text-foreground">
-                          Dados são o novo petróleo
+                          Data-Driven Excellence
                         </h3>
                         <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                          Transformando bytes em decisões que movem o mundo.
+                          Transformando complexidade em inteligência acionável.
                         </p>
                       </div>
                     </div>
