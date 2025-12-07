@@ -20,7 +20,7 @@ const methodologies = [
   "Scrum", "Kanban", "CRISP-DM", "Metodologias Ágeis"
 ];
 
-// Software icons with images
+// Software icons with images - doubled for infinite scroll
 const softwareIcons = [
   { icon: pythonIcon, label: "Python" },
   { icon: sqlIcon, label: "SQL" },
@@ -33,8 +33,11 @@ const softwareIcons = [
 ];
 
 export const Skills = () => {
+  // Double the icons for seamless infinite scroll
+  const scrollIcons = [...softwareIcons, ...softwareIcons];
+
   return (
-    <section id="habilidades" className="py-24 relative">
+    <section id="habilidades" className="py-24 relative overflow-hidden">
       {/* Section Number */}
       <span className="section-number">03</span>
 
@@ -46,22 +49,35 @@ export const Skills = () => {
           </h2>
         </div>
 
-        {/* Software Icons */}
-        <div className="flex justify-center flex-wrap gap-6 mb-12" data-aos="zoom-in-up" data-aos-delay="100">
-          {softwareIcons.map((item, index) => (
-            <div
-              key={index}
-              className="software-icon-img group"
-              title={item.label}
-            >
-              <img 
-                src={item.icon} 
-                alt={item.label} 
-                className="w-12 h-12 object-contain transition-transform duration-300 group-hover:scale-110"
-              />
-              <span className="text-xs text-muted-foreground mt-2 font-sans">{item.label}</span>
-            </div>
-          ))}
+        {/* Infinite Scroll Gallery */}
+        <div 
+          className="skills-gallery relative mb-12 overflow-hidden"
+          data-aos="zoom-in-up" 
+          data-aos-delay="100"
+          style={{
+            maskImage: "linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent)",
+            WebkitMaskImage: "linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent)",
+          }}
+        >
+          <div className="skills-scroll flex gap-8 animate-scroll-infinite">
+            {scrollIcons.map((item, index) => (
+              <div
+                key={index}
+                className="skill-icon-card flex-shrink-0 group"
+              >
+                <div className="relative w-24 h-24 rounded-xl bg-secondary/50 border border-border hover:border-foreground/30 transition-all duration-300 flex items-center justify-center overflow-hidden">
+                  <img 
+                    src={item.icon} 
+                    alt={item.label} 
+                    className="w-14 h-14 object-contain transition-transform duration-500 group-hover:scale-110"
+                  />
+                </div>
+                <span className="text-xs text-muted-foreground mt-2 font-sans block text-center">
+                  {item.label}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">

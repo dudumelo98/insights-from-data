@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Github, Linkedin } from "lucide-react";
+import { ArrowDown, Download, Github, Linkedin, Instagram } from "lucide-react";
 import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
@@ -8,13 +8,24 @@ export const Hero = () => {
       {/* Section Number */}
       <span className="section-number">01</span>
 
+      {/* Instagram Link - Top Right */}
+      <a
+        href="https://www.instagram.com/_dudumelo7?igsh=MWEwZnFjYTR3Zm82dQ%3D%3D&utm_source=qr"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="absolute top-24 right-6 z-20 software-icon hover:scale-110 transition-transform duration-300"
+        title="Instagram"
+      >
+        <Instagram size={20} />
+      </a>
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="text-center lg:text-left space-y-8" data-aos="fade-right">
             <div className="space-y-4">
               <p className="section-subtitle">
-                Cientista de Dados
+                Duilio Melo
               </p>
               <h1 className="text-6xl md:text-8xl font-serif font-bold leading-none">
                 <span className="text-gradient">Olá!</span>
