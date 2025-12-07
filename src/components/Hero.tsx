@@ -30,11 +30,16 @@ export const Hero = () => {
                   Ver Projetos
                   <ArrowDown className="ml-2" size={18} />
                 </a>
-              </Button>
-              <Button variant="outline" size="lg">
-                <Download size={18} />
-                Download CV
-              </Button>
+              <Button variant="outline" size="lg" asChild>
+  <a 
+    href="/Curriculo Duilio.pdf" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    <Download size={18} />
+    Download CV
+  </a>
+</Button>
             </div>
 
             {/* Social Links */}
