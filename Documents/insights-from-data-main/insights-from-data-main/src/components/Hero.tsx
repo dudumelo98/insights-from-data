@@ -3,6 +3,33 @@ import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const Hero = () => {
+  const handleDownloadCV = async (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    try {
+      // Tenta fazer fetch do PDF e criar um blob para download
+      const response = await fetch('/curriculo.pdf');
+      if (!response.ok) {
+        throw new Error('Erro ao carregar PDF');
+      }
+      
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'curriculo-duilio-melo.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Erro ao baixar CV:', error);
+      // Fallback: tenta abrir em nova aba
+      window.open('/curriculo.pdf', '_blank', 'noopener,noreferrer');
+    }
+  };
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Section Number */}
@@ -31,20 +58,9 @@ export const Hero = () => {
                   <ArrowDown className="ml-2" size={18} />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a 
-                  href="/curriculo.pdf" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  onClick={(e) => {
-                    // Força o navegador a abrir o arquivo sem passar pelo React Router
-                    e.stopPropagation();
-                    console.log('Link clicado, abrindo PDF');
-                  }}
-                >
-                  <Download size={18} />
-                  Download CV
-                </a>
+              <Button variant="outline" size="lg" onClick={handleDownloadCV}>
+                <Download size={18} />
+                Download CV
               </Button>
             </div>
 
