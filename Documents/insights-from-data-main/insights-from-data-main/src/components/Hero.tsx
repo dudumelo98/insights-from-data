@@ -3,30 +3,6 @@ import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const Hero = () => {
-  const handleDownloadCV = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    const pdfUrl = `${window.location.origin}/curriculo.pdf`;
-    
-    // Tenta abrir em nova aba primeiro
-    const newWindow = window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-    
-    // Se falhar (popup bloqueado), tenta criar link e clicar
-    if (!newWindow || newWindow.closed || typeof newWindow.closed === 'undefined') {
-      const link = document.createElement('a');
-      link.href = pdfUrl;
-      link.target = '_blank';
-      link.rel = 'noopener noreferrer';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      setTimeout(() => {
-        document.body.removeChild(link);
-      }, 100);
-    }
-  };
-
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Section Number */}
@@ -55,9 +31,20 @@ export const Hero = () => {
                   <ArrowDown className="ml-2" size={18} />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" onClick={handleDownloadCV}>
-                <Download size={18} />
-                Download CV
+              <Button variant="outline" size="lg" asChild>
+                <a 
+                  href="/curriculo.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  onClick={(e) => {
+                    // Força o navegador a abrir o arquivo sem passar pelo React Router
+                    e.stopPropagation();
+                    console.log('Link clicado, abrindo PDF');
+                  }}
+                >
+                  <Download size={18} />
+                  Download CV
+                </a>
               </Button>
             </div>
 
