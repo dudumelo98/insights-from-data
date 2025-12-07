@@ -207,137 +207,100 @@
   }
 }
 
-/* 3D Social Links Grid */
-.social-3d-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-  perspective: 1000px;
-  max-width: 420px;
-}
-
-.social-3d-link {
+/* Social Icons Card */
+.social-card {
+  width: fit-content;
+  height: fit-content;
+  background-color: hsl(var(--secondary));
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 56px;
-  background: hsl(var(--secondary));
-  text-align: left;
-  padding-left: 16px;
-  transform: rotate(-30deg) skew(25deg) translate(0, 0);
-  transition: all 0.5s ease;
-  box-shadow: -15px 15px 8px hsl(0 0% 0% / 0.5);
-  text-decoration: none;
-  position: relative;
+  justify-content: center;
+  padding: 25px 25px;
+  gap: 20px;
+  box-shadow: 0px 0px 20px hsl(0 0% 0% / 0.15);
+  border-radius: 12px;
 }
 
-.social-3d-link::before {
-  content: '';
-  position: absolute;
-  top: 8px;
-  left: -15px;
-  height: 100%;
-  width: 15px;
-  background: hsl(var(--muted));
-  transform: rotate(0deg) skewY(-45deg);
+.socialContainer {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-color: hsl(var(--muted));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+  cursor: pointer;
 }
 
-.social-3d-link::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: -8px;
-  height: 15px;
-  width: 100%;
-  background: hsl(var(--muted));
-  transform: rotate(0deg) skewX(-45deg);
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
 }
 
-.social-3d-link:hover {
-  transform: rotate(-30deg) skew(25deg) translate(15px, -10px);
-  box-shadow: -40px 40px 40px hsl(0 0% 0% / 0.5);
+.socialSvg {
+  width: 17px;
+  height: 17px;
 }
 
-.social-3d-icon {
-  color: hsl(var(--foreground));
-  transition: color 0.5s ease;
-  padding-right: 10px;
+.socialSvg path {
+  fill: hsl(var(--foreground));
 }
 
-.social-3d-label {
-  color: hsl(var(--foreground));
-  letter-spacing: 2px;
-  font-size: 13px;
-  font-weight: 500;
-  transition: color 0.5s ease;
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
 }
 
-/* Social link colors on hover */
-.social-3d-email:hover {
-  background: hsl(0 84% 60%);
-}
-.social-3d-email:hover::before {
-  background: hsl(0 70% 45%);
-}
-.social-3d-email:hover::after {
-  background: hsl(0 84% 70%);
+.socialContainer:hover .socialSvg path {
+  fill: hsl(0 0% 100%);
 }
 
-.social-3d-github:hover {
-  background: hsl(0 0% 20%);
-}
-.social-3d-github:hover::before {
-  background: hsl(0 0% 10%);
-}
-.social-3d-github:hover::after {
-  background: hsl(0 0% 30%);
+/* Email */
+.container-email:hover {
+  background-color: hsl(0 84% 60%);
 }
 
-.social-3d-linkedin:hover {
-  background: hsl(201 100% 35%);
-}
-.social-3d-linkedin:hover::before {
-  background: hsl(201 100% 25%);
-}
-.social-3d-linkedin:hover::after {
-  background: hsl(201 100% 45%);
+/* GitHub */
+.container-github:hover {
+  background-color: hsl(0 0% 20%);
 }
 
-.social-3d-instagram:hover {
-  background: hsl(340 75% 55%);
-}
-.social-3d-instagram:hover::before {
-  background: hsl(340 75% 40%);
-}
-.social-3d-instagram:hover::after {
-  background: hsl(340 75% 65%);
+/* LinkedIn */
+.container-linkedin:hover {
+  background-color: hsl(201 100% 35%);
 }
 
-.social-3d-link:hover .social-3d-icon,
-.social-3d-link:hover .social-3d-label {
-  color: hsl(0 0% 100%);
+/* Instagram */
+.container-instagram:hover {
+  background-color: hsl(340 75% 55%);
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .social-3d-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    max-width: 200px;
-    margin: 0 auto;
+  .social-card {
+    padding: 20px;
+    gap: 16px;
   }
   
-  .social-3d-link {
-    height: 50px;
-    padding-left: 12px;
+  .socialContainer {
+    width: 46px;
+    height: 46px;
   }
   
-  .social-3d-label {
-    font-size: 12px;
-  }
-  
-  .social-3d-icon svg {
-    width: 20px;
-    height: 20px;
+  .socialSvg {
+    width: 15px;
+    height: 15px;
   }
 }
