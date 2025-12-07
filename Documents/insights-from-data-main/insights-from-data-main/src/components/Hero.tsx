@@ -11,7 +11,7 @@ export const Hero = () => {
       // Tenta fazer fetch do PDF e criar um blob para download
       const response = await fetch('/curriculo.pdf');
       if (!response.ok) {
-        throw new Error('Erro ao carregar PDF');
+        throw new Error(`Erro ao carregar PDF: ${response.status}`);
       }
       
       const blob = await response.blob();
@@ -19,14 +19,20 @@ export const Hero = () => {
       const link = document.createElement('a');
       link.href = url;
       link.download = 'curriculo-duilio-melo.pdf';
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(url);
+      
+      // Limpa após um tempo
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }, 100);
     } catch (error) {
       console.error('Erro ao baixar CV:', error);
-      // Fallback: tenta abrir em nova aba
-      window.open('/curriculo.pdf', '_blank', 'noopener,noreferrer');
+      // Fallback: tenta abrir em nova aba usando URL absoluta
+      const pdfUrl = `${window.location.origin}/curriculo.pdf`;
+      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
     }
   };
 
