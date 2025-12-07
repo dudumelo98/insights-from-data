@@ -3,37 +3,14 @@ import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const Hero = () => {
-  const handleDownloadCV = async (e: React.MouseEvent) => {
+  const handleDownloadCV = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     
-    try {
-      // Tenta fazer fetch do PDF e criar um blob para download
-      const response = await fetch('/curriculo.pdf');
-      if (!response.ok) {
-        throw new Error(`Erro ao carregar PDF: ${response.status}`);
-      }
-      
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'curriculo-duilio-melo.pdf';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      
-      // Limpa após um tempo
-      setTimeout(() => {
-        document.body.removeChild(link);
-        window.URL.revokeObjectURL(url);
-      }, 100);
-    } catch (error) {
-      console.error('Erro ao baixar CV:', error);
-      // Fallback: tenta abrir em nova aba usando URL absoluta
-      const pdfUrl = `${window.location.origin}/curriculo.pdf`;
-      window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-    }
+    // Abre o PDF diretamente em nova aba usando URL absoluta
+    // Isso garante que funcione mesmo com React Router
+    const pdfUrl = `${window.location.origin}/curriculo.pdf`;
+    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
