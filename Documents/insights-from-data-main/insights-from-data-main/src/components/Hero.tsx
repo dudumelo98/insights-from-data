@@ -3,6 +3,21 @@ import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const Hero = () => {
+  const handleDownloadCV = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Força a abertura do PDF sem passar pelo React Router
+    const pdfUrl = `${window.location.origin}/curriculo.pdf`;
+    const link = document.createElement('a');
+    link.href = pdfUrl;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Section Number */}
@@ -36,7 +51,7 @@ export const Hero = () => {
                   href="/curriculo.pdf"
                   target="_blank" 
                   rel="noopener noreferrer"
-                  download="curriculo-duilio-melo.pdf"
+                  onClick={handleDownloadCV}
                 >
                   <Download size={18} />
                   Download CV
