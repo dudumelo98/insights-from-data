@@ -3,16 +3,6 @@ import { Button } from "./ui/button";
 import profilePhoto from "@/assets/profile-photo.jpeg";
 
 export const Hero = () => {
-  const handleDownloadCV = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    
-    // Abre o PDF diretamente em nova aba usando URL absoluta
-    // Isso garante que funcione mesmo com React Router
-    const pdfUrl = `${window.location.origin}/curriculo.pdf`;
-    window.open(pdfUrl, '_blank', 'noopener,noreferrer');
-  };
-
   return (
     <section id="inicio" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Section Number */}
@@ -41,9 +31,16 @@ export const Hero = () => {
                   <ArrowDown className="ml-2" size={18} />
                 </a>
               </Button>
-              <Button variant="outline" size="lg" onClick={handleDownloadCV}>
-                <Download size={18} />
-                Download CV
+              <Button variant="outline" size="lg" asChild>
+                <a 
+                  href="/curriculo.pdf"
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  download="curriculo-duilio-melo.pdf"
+                >
+                  <Download size={18} />
+                  Download CV
+                </a>
               </Button>
             </div>
 
