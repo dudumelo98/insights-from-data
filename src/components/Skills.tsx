@@ -2,7 +2,7 @@ import pythonIcon from "@/assets/icons/python.png";
 import sqlIcon from "@/assets/icons/sql.png";
 import powerbiIcon from "@/assets/icons/powerbi.png";
 import gitIcon from "@/assets/icons/git.png";
-import githubIcon from "@/assets/icons/github.png";
+import githubIcon from "@/assets/icons/github-white.svg";
 import tensorflowIcon from "@/assets/icons/tensorflow.png";
 import pandasIcon from "@/assets/icons/pandas.png";
 import numpyIcon from "@/assets/icons/numpy.png";

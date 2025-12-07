@@ -21,11 +21,8 @@ export const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <h3 className="font-serif font-bold text-2xl text-foreground">
-              Duilio Melo
+              DM
             </h3>
-            <p className="text-muted-foreground text-sm leading-relaxed font-sans">
-              Cientista de Dados especializado em transformar dados em insights estratégicos.
-            </p>
           </div>
 
           {/* Quick Links */}

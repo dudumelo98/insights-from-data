@@ -103,10 +103,10 @@ export const About = () => {
                       {/* Text overlay */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 space-y-3">
                         <h3 className="text-lg font-serif font-bold text-foreground">
-                          Cientista de Dados
+                          Dados são o novo petróleo
                         </h3>
                         <p className="text-xs text-muted-foreground leading-relaxed font-sans">
-                          Com 10 anos de experiência — 7 em gestão e 3 em supervisão de TI no município.
+                          Transformando bytes em decisões que movem o mundo.
                         </p>
                       </div>
                     </div>
@@ -128,7 +128,7 @@ export const About = () => {
               7 em gestão e 3 em supervisão de TI no município.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed font-sans">
-              Especialista em transformar dados em decisões estratégicas com 
+              Transformo dados em decisões estratégicas com 
               <span className="text-foreground font-semibold"> Python, Machine Learning e Big Data</span>.
             </p>
           </div>
