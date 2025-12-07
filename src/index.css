@@ -207,20 +207,20 @@
   }
 }
 
-/* 3D Social Links */
-.social-3d-list {
+/* 3D Social Links Grid */
+.social-3d-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
   perspective: 1000px;
-}
-
-.social-3d-item {
-  list-style: none;
+  max-width: 420px;
 }
 
 .social-3d-link {
   display: flex;
   align-items: center;
-  width: 180px;
-  height: 60px;
+  width: 100%;
+  height: 56px;
   background: hsl(var(--secondary));
   text-align: left;
   padding-left: 16px;
@@ -267,7 +267,7 @@
 .social-3d-label {
   color: hsl(var(--foreground));
   letter-spacing: 2px;
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   transition: color 0.5s ease;
 }
@@ -320,8 +320,14 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .social-3d-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+  
   .social-3d-link {
-    width: 150px;
     height: 50px;
     padding-left: 12px;
   }

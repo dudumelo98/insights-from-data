@@ -5,12 +5,11 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 
-const contactInfo = [
+const socialLinks = [
   { icon: Mail, label: "Email", value: "dudumelo723@gmail.com", href: "mailto:dudumelo723@gmail.com", color: "email" },
   { icon: "github", label: "GitHub", value: "/dudumelo98", href: "https://github.com/dudumelo98", color: "github" },
   { icon: "linkedin", label: "LinkedIn", value: "/duilio-melo", href: "https://www.linkedin.com/in/duilio-melo-a865a1359/", color: "linkedin" },
   { icon: "instagram", label: "Instagram", value: "@_dudumelo7", href: "https://www.instagram.com/_dudumelo7?igsh=MWEwZnFjYTR3Zm82dQ%3D%3D&utm_source=qr", color: "instagram" },
-  { icon: MapPin, label: "Localização", value: "Maranhão, Brasil", color: "location" },
 ];
 
 export const Contact = () => {
@@ -78,37 +77,34 @@ export const Contact = () => {
           <div className="space-y-8" data-aos="zoom-in-up" data-aos-delay="100">
             <h3 className="font-display font-semibold text-xl text-foreground tracking-wide">INFORMAÇÕES</h3>
             
-            {/* 3D Social Links */}
-            <ul className="social-3d-list flex flex-wrap gap-4 justify-center lg:justify-start">
-              {contactInfo.filter(item => item.href).map((item, index) => (
-                <li key={index} className="social-3d-item">
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`social-3d-link social-3d-${item.color}`}
-                  >
-                    <span className="social-3d-icon">
-                      {getSocialIcon(item.icon)}
-                    </span>
-                    <span className="social-3d-label">{item.label}</span>
-                  </a>
-                </li>
+            {/* 3D Social Links - Grid Layout */}
+            <div className="social-3d-grid">
+              {socialLinks.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`social-3d-link social-3d-${item.color}`}
+                >
+                  <span className="social-3d-icon">
+                    {getSocialIcon(item.icon)}
+                  </span>
+                  <span className="social-3d-label">{item.label}</span>
+                </a>
               ))}
-            </ul>
+            </div>
 
             {/* Location info */}
-            {contactInfo.filter(item => !item.href).map((item, index) => (
-              <div key={index} className="flex items-center gap-4 p-4 rounded-lg border border-border/50 bg-secondary/30">
-                <div className="p-3 rounded-lg border border-border bg-background/50">
-                  {typeof item.icon !== 'string' && <item.icon size={20} className="text-muted-foreground" />}
-                </div>
-                <div>
-                  <p className="text-muted-foreground text-sm font-sans">{item.label}</p>
-                  <p className="text-foreground font-sans font-medium">{item.value}</p>
-                </div>
+            <div className="flex items-center gap-4 p-4 rounded-lg border border-border/50 bg-secondary/30 mt-8">
+              <div className="p-3 rounded-lg border border-border bg-background/50">
+                <MapPin size={20} className="text-muted-foreground" />
               </div>
-            ))}
+              <div>
+                <p className="text-muted-foreground text-sm font-sans">Localização</p>
+                <p className="text-foreground font-sans font-medium">Maranhão, Brasil</p>
+              </div>
+            </div>
           </div>
 
           {/* Contact Form */}
