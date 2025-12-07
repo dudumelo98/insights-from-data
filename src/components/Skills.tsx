@@ -2,10 +2,11 @@ import pythonIcon from "@/assets/icons/python.png";
 import sqlIcon from "@/assets/icons/sql.png";
 import powerbiIcon from "@/assets/icons/powerbi.png";
 import gitIcon from "@/assets/icons/git.png";
-import githubIcon from "@/assets/icons/github-white.svg";
+import githubIcon from "@/assets/icons/github-bold.png";
 import tensorflowIcon from "@/assets/icons/tensorflow.png";
 import pandasIcon from "@/assets/icons/pandas.png";
 import numpyIcon from "@/assets/icons/numpy.png";
+import rIcon from "@/assets/icons/r.png";
 
 const technicalSkills = [
   "Machine Learning", "Deep Learning", "Big Data", "ETL/ELT Pipelines", "Scikit-learn"
@@ -30,6 +31,7 @@ const softwareIcons = [
   { icon: tensorflowIcon, label: "TensorFlow" },
   { icon: pandasIcon, label: "Pandas" },
   { icon: numpyIcon, label: "NumPy" },
+  { icon: rIcon, label: "R" },
 ];
 
 export const Skills = () => {
@@ -65,11 +67,11 @@ export const Skills = () => {
                 key={index}
                 className="skill-icon-card flex-shrink-0 group"
               >
-                <div className="relative w-24 h-24 rounded-xl bg-secondary/50 border border-border hover:border-foreground/30 transition-all duration-300 flex items-center justify-center overflow-hidden">
+                <div className="relative w-20 h-20 rounded-full bg-secondary/50 border border-border hover:border-foreground/30 transition-all duration-300 flex items-center justify-center overflow-hidden">
                   <img 
                     src={item.icon} 
                     alt={item.label} 
-                    className="w-14 h-14 object-contain transition-transform duration-500 group-hover:scale-110"
+                    className="w-12 h-12 object-contain transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
                 <span className="text-xs text-muted-foreground mt-2 font-sans block text-center">
