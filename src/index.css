@@ -207,15 +207,131 @@
   }
 }
 
-/* Hide Lovable badge */
-[data-lovable-badge],
-#lovable-badge,
-a[href*="lovable.dev"]:has(img),
-div[class*="lovable"],
-iframe[src*="lovable"],
-div:has(> a[href*="lovable.dev"]) {
-  display: none !important;
-  visibility: hidden !important;
-  opacity: 0 !important;
-  pointer-events: none !important;
+/* 3D Social Links */
+.social-3d-list {
+  perspective: 1000px;
+}
+
+.social-3d-item {
+  list-style: none;
+}
+
+.social-3d-link {
+  display: flex;
+  align-items: center;
+  width: 180px;
+  height: 60px;
+  background: hsl(var(--secondary));
+  text-align: left;
+  padding-left: 16px;
+  transform: rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: all 0.5s ease;
+  box-shadow: -15px 15px 8px hsl(0 0% 0% / 0.5);
+  text-decoration: none;
+  position: relative;
+}
+
+.social-3d-link::before {
+  content: '';
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  height: 100%;
+  width: 15px;
+  background: hsl(var(--muted));
+  transform: rotate(0deg) skewY(-45deg);
+}
+
+.social-3d-link::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: -8px;
+  height: 15px;
+  width: 100%;
+  background: hsl(var(--muted));
+  transform: rotate(0deg) skewX(-45deg);
+}
+
+.social-3d-link:hover {
+  transform: rotate(-30deg) skew(25deg) translate(15px, -10px);
+  box-shadow: -40px 40px 40px hsl(0 0% 0% / 0.5);
+}
+
+.social-3d-icon {
+  color: hsl(var(--foreground));
+  transition: color 0.5s ease;
+  padding-right: 10px;
+}
+
+.social-3d-label {
+  color: hsl(var(--foreground));
+  letter-spacing: 2px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.5s ease;
+}
+
+/* Social link colors on hover */
+.social-3d-email:hover {
+  background: hsl(0 84% 60%);
+}
+.social-3d-email:hover::before {
+  background: hsl(0 70% 45%);
+}
+.social-3d-email:hover::after {
+  background: hsl(0 84% 70%);
+}
+
+.social-3d-github:hover {
+  background: hsl(0 0% 20%);
+}
+.social-3d-github:hover::before {
+  background: hsl(0 0% 10%);
+}
+.social-3d-github:hover::after {
+  background: hsl(0 0% 30%);
+}
+
+.social-3d-linkedin:hover {
+  background: hsl(201 100% 35%);
+}
+.social-3d-linkedin:hover::before {
+  background: hsl(201 100% 25%);
+}
+.social-3d-linkedin:hover::after {
+  background: hsl(201 100% 45%);
+}
+
+.social-3d-instagram:hover {
+  background: hsl(340 75% 55%);
+}
+.social-3d-instagram:hover::before {
+  background: hsl(340 75% 40%);
+}
+.social-3d-instagram:hover::after {
+  background: hsl(340 75% 65%);
+}
+
+.social-3d-link:hover .social-3d-icon,
+.social-3d-link:hover .social-3d-label {
+  color: hsl(0 0% 100%);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .social-3d-link {
+    width: 150px;
+    height: 50px;
+    padding-left: 12px;
+  }
+  
+  .social-3d-label {
+    font-size: 12px;
+  }
+  
+  .social-3d-icon svg {
+    width: 20px;
+    height: 20px;
+  }
 }
