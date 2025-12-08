@@ -32,7 +32,7 @@ export const Hero = () => {
                 </a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="/curriculo.pdf" download="Curriculo_Duilio_Melo.pdf">
+                <a href="/curriculo.docx" download="Curriculo_Duilio_Melo.docx">
                   <Download size={18} />
                   Baixar CV
                 </a>
