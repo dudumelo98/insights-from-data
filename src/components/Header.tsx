@@ -31,7 +31,7 @@ export const Header = () => {
       <div className="container mx-auto px-6">
         <nav className="flex items-center justify-between">
           <a href="#inicio" className="text-xl font-serif font-bold text-foreground">
-            Duilio Melo
+            Cientista de dados
           </a>
 
           {/* Desktop Navigation */}
