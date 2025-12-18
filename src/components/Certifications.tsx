@@ -11,7 +11,7 @@ const certifications = [
     icon: "SL",
     title: "Supervised Machine Learning",
     provider: "Stanford Online & DeepLearning.AI",
-    link: "https://www.coursera.org/learn/machine-learning",
+    link: "https://www.coursera.org/account/accomplishments/verify/JPDN4TU51ONY",
   },
 ];
 
