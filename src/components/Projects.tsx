@@ -8,8 +8,17 @@ import publicSpendingImg from "@/assets/projects/public-spending.jpg";
 import churnPredictionImg from "@/assets/projects/churn-prediction.jpg";
 import rfmAnalysisImg from "@/assets/projects/rfm-analysis.jpg";
 import laborMarketImg from "@/assets/projects/labor-market.png";
+import factoryGuardianImg from "@/assets/projects/factory-guardian.png";
 
 const projects = [
+  {
+    id: 6,
+    image: factoryGuardianImg,
+    title: "Factory Guardian",
+    location: "Monitoramento & ML",
+    description: "O Factory Guardian é um sistema que monitora equipamentos industriais em tempo real e prevê falhas com 24 a 48 horas de antecedência.",
+    github: "https://github.com/dudumelo98/factory-guardian",
+  },
   {
     id: 1,
     image: fraudDetectionImg,
